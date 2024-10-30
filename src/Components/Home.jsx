@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Sidenav from './partials/Sidenav'
 import Topnav from './partials/Topnav'
 import Header from './partials/Header'
-import axios from '..//utils/Axios'
+import axios from '../utils/Axios'
 import Horizontilacards from './partials/Horizontilacards'
 import Dropdown from './partials/Dropdown'
 import Loader from './Loader'
@@ -24,7 +24,9 @@ function Home() {
         console.log(err);
       }
     }
-
+// console.log(wallpaper);
+// console.log(trending);
+// console.log(categories);
     const getheadertrending = async () => {
       try {
         const { data } = await axios.get(`/trending/${categories.toLowerCase()}/day`);
@@ -45,7 +47,7 @@ function Home() {
   return wallpaper && trending ?(
       <div className='w-screen h-screen bg-[#1F1E24] text-white flex overflow-hidden '>
           <Sidenav/>
-        <div className='h-full w-[77%] overflow-y-auto overflow-x-hidden '>
+        <div className='h-full w-[77%]  overflow-y-auto overflow-x-hidden '>
           <Topnav/>
           <Header data={wallpaper}/>
 
