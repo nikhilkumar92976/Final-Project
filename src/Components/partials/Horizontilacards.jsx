@@ -7,12 +7,12 @@ function Horizontilacards({ data }) {
     return (
        
   
-            <div className='w-full h-[54vh]  flex gap-4  overflow-x-auto overflow-y-hidden mb-8 '>
+            <div className={`w-full   flex gap-4  overflow-x-auto overflow-y-hidden mb-8  ${ window.innerWidth <= 640 ? 'h-[45vh]' : 'h-[54vh]'}`}>
 
                 {data.map((d, i) => (
-                    <Link to={`/${d.media_type }/details/${d.id}`} key={i} className='h-[48vh] relative hover:scale-110 duration-75 min-w-[22%] shadow-lg   shadow-black bg-zinc-900  '>
+                    <Link to={`/${d.media_type }/details/${d.id}`} key={i} className={` relative hover:scale-110 duration-75  shadow-lg   shadow-black bg-zinc-900 ${ window.innerWidth <= 640 ? 'min-w-[60%] h-[40vh]' : 'min-w-[22%] h-[48vh]'}`}>
                         <i className="absolute py-[1px] px-3 text-yellow-500 rounded-sm  top-[1%] font-semibold ri-star-fill"></i>
-                        <img className='h-[25vh] w-full object-cover ' src={d.backdrop_path || d.profile_path ? `https://image.tmdb.org/t/p/original/${d.backdrop_path || d.profile_path}`:noimage} alt="" />
+                        <img className={`w-full object-cover ${ window.innerWidth <= 640 ? 'h-[20vh]' : 'h-[25vh]'}`} src={d.backdrop_path || d.profile_path ? `https://image.tmdb.org/t/p/original/${d.backdrop_path || d.profile_path}`:noimage} alt="" />
                         <div className='p-2'>
                             <h1 className='text-xl font-black text-white'>
                                 {d.name || d.title || d.original_title || d.original_name}

@@ -40,20 +40,19 @@ function Home() {
     useEffect(()=>{
       getheadertrending();
       !wallpaper && getheaderwallpaper();
-    },[categories])
-   
-    
+    },[categories])  
 
   return wallpaper && trending ?(
-      <div className='w-screen h-screen bg-[#1F1E24] text-white flex overflow-hidden '>
+      <div className='w-screen h-screen bg-[#1F1E24] text-white flex overflow-hidden relative '>
+        { window.innerWidth <= 640 ?<i className="ri-menu-fill text-[#6556CD] absolute z-10 text-3xl top-5 left-2"></i>:<h1></h1>}
           <Sidenav/>
-        <div className='h-full w-[77%]  overflow-y-auto overflow-x-hidden '>
+        <div className={`h-full   overflow-y-auto overflow-x-hidden  ${ window.innerWidth <= 640 ? 'w-screen' : 'w-[77%] '}`}>
           <Topnav/>
           <Header data={wallpaper}/>
 
           <div className='flex justfiy-btween my-4 mx-5 '>
                 <div  ><h1 className='text-3xl text-zinc-400 font-bold'>Trending</h1></div>
-               <div className='ml-[57%]'> <Dropdown title="Filter" options={["TV","Movie","ALL"]} func={(e)=>setcategories(e.target.value)} /></div>
+               <div className={`  ${ window.innerWidth <= 640 ? 'ml-[30%]' : 'ml-[57%]'}`}> <Dropdown title="Filter" options={["TV","Movie","ALL"]} func={(e)=>setcategories(e.target.value)} /></div>
             </div>
           <Horizontilacards data={trending} fnc={setcategories}/>
         </div>

@@ -12,11 +12,11 @@ function Header({data}) {
         }}
         className='h-[60vh] w-full p-[5%] flex flex-col items-start justify-end'>
 
-        <h1 className='w-[70%] text-5xl font-black text-white'>
+        <h1 className={`font-black text-white ${ window.innerWidth <= 640 ? 'text-3xl font-bold w-full' : 'w-[70%] text-5xl '}`}>
             {data.name || data.title || data.original_title || data.original_name}
         </h1>
 
-        <p className='w-[70%] my-2 leading-5'>{data.overview.slice(0,200)}...
+        <p className={` my-2 leading-5 ${ window.innerWidth <= 640 ? 'w-full' : 'w-[70%]'}`}>{data.overview.slice(0,200)}...
             <Link to={`/${data.media_type}/details/${data.id}`} className='text-blue-400'>more</Link>
         </p>
 
