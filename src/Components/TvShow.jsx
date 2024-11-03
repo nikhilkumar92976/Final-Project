@@ -49,18 +49,18 @@ function TvShow() {
     // Render the TV shows or Loader component
     return TV.length > 0 ? (
         <div className='bg-[#1F1E24] h-screen w-screen relative overflow-x-hidden'>
-            <nav className='px-[2%] py-3 text-zinc-400 font-semibold text-2xl flex items-center justify-between'>
+            <nav className={`px-[2%]  py-3 text-zinc-400 font-semibold text-2xl flex items-center justify-between ${ window.innerWidth <= 640 ? 'mt-[13%]' : ''}`}>
                 <div className="flex items-center space-x-3">
                     <h1>
                         <i onClick={() => navigate(-1)} className="hover:text-[#1F1E24] mr-2 ri-arrow-left-line"></i>TV Shows 
                     </h1>
                 </div>
 
-                <div className="flex-grow px-5">
+                <div className={`flex-grow px-5 ${ window.innerWidth <= 640 ? 'absolute top-[0%] -left-10 z-20' : ''}`}>
                     <Topnav className="w-full h-[3rem] px-4 py-2 rounded-md text-lg" />
                 </div>
 
-                <div className="flex items-center w-[20%] space-x-2 ">
+                <div className={`flex items-center  space-x-2 ${ window.innerWidth <= 640 ? 'w-[60%] ' : 'w-[20%]'}`}>
                     <Dropdown
                         title="Filter"
                         options={["popular", "top_rated", "on_the_air", "airing_today"]}
@@ -76,7 +76,7 @@ function TvShow() {
                 hasMore={hasMore} // Boolean to control if more data can be loaded
                 loader={<h1>Loading...</h1>} // Loading text or spinner
             >
-                <Cards data={TV} title="tv" />
+                <div className={`${ window.innerWidth <= 640 ? 'mx-11' : ''}`}><Cards data={TV} title="tv" /></div>
             </InfiniteScroll>
         </div>
     ) : <Loader />;

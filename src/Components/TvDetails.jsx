@@ -24,10 +24,10 @@ function TvDetails() {
       background: `linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.5),rgba(0,0,0,.8)), url(https://image.tmdb.org/t/p/original/${info.details.backdrop_path})`,
       backgroundPosition: "center",
       backgroundSize: "cover"
-    }} className='relative max-w-screen pl-[30vh] pr-[20vh] text-white py-1 overflow-x-hidden overflow-y-auto '>
+    }}  className={`relative max-w-screen   text-white py-1 overflow-x-hidden overflow-y-auto ${ window.innerWidth <= 640 ? '' : 'pl-[30vh] pr-[20vh]'}`}>
 
       {/* part 1 nav bar */}
-      <nav className='flex gap-10 mt-10 text-xl'>
+      <nav className={`flex   text-xl  ${ window.innerWidth <= 640 ? 'gap-8 mt-5' : 'gap-10 mt-10'}`}>
         <i onClick={() => navigate(-1)} className="hover:text-[#1F1E24] mr-2 ri-arrow-left-line"></i>
 
         <a href={info.details.homepage}>
@@ -48,12 +48,12 @@ function TvDetails() {
       </nav>
 
       {/* part 2 poster image and details */}
-      <div className='mt-7 flex gap-14'>
-        <img className='h-[65vh] w-[44vh] object-cover shadow-2xl mt-4' src={`https://image.tmdb.org/t/p/original/${info.details.poster_path || info.details.backdrop_path || info.details.profile_path}`} alt="" />
+      <div className={` flex gap-14 ${ window.innerWidth <= 640 ? 'flex-col ' : 'mt-7'}`}>
+        <img className={` object-cover shadow-2xl mt-4 ${ window.innerWidth <= 640 ? 'w-[37vh] h-[49vh] ml-12' : 'w-[44vh] h-[65vh] '}`} src={`https://image.tmdb.org/t/p/original/${info.details.poster_path || info.details.backdrop_path || info.details.profile_path}`} alt="" />
 
-        <div >
-          <h1 className='text-5xl font-bold mb-1'>{info.details.name} <small className='text-xl font-semibold'>({info.details.first_air_date.split("-")[0]})</small></h1>
-          <div className='flex gap-2 items-center'>
+        <div  className={`${ window.innerWidth <= 640 ? 'p-2 ' : ''}`}>
+          <h1 className={` font-bold mb-1  ${ window.innerWidth <= 640 ? 'text-3xl ml-3 mt-4' : 'text-5xl'}`}>{info.details.name} <small className='text-xl font-semibold'>({info.details.first_air_date.split("-")[0]})</small></h1>
+          <div className={`flex  items-center   ${ window.innerWidth <= 640 ? 'gap-[3px]' : 'gap-2'}`}>
             <div className=' h-[7vh] w-[7vh] bg-yellow-600 rounded-full flex items-center justify-center text-xl text-white'>{(info.details.vote_average * 10).toFixed()} <sup>%</sup></div>
             <h1 className='text-xl font-bold'>User Score</h1>
             <h1>{info.details.last_air_date}</h1>
@@ -68,7 +68,7 @@ function TvDetails() {
           <h1 className='text-2xl my-2'>Tv Show Translated</h1>
           <p className='text-sm leading-5 mb-6'>{info.translations.join(", ")}</p>
 
-          <Link to={`${pathname}/trailer`} className='bg-[#5627a1e3]  px-4 py-4 rounded-lg text-xl'><i class="ri-play-fill"></i> Play Trailer</Link>
+          <Link to={`${pathname}/trailer`} className={`bg-[#5627a1e3]   rounded-lg text-xl ${ window.innerWidth <= 640 ? 'absolute px-2 py-3 top-[59vh] left-[13%]' : 'px-4 py-4'}`}><i class="ri-play-fill"></i> Play Trailer</Link>
         </div>
       </div>
 
@@ -81,7 +81,7 @@ function TvDetails() {
             {info.details.seasons.map((s, i) => (
               <div key={i} className='w-[37vh]'>
                 <img
-                  className='min-w-[37vh] h-[48vh] shadow-2xl border border-zinc-700 hover:scale-110 duration-100'
+                  className={` shadow-2xl border border-zinc-700 hover:scale-110 duration-100 ${ window.innerWidth <= 640 ? 'min-w-[30vh] h-[35vh]' : 'min-w-[37vh] h-[48vh]'}`}
                   src={`https://image.tmdb.org/t/p/original/${s.poster_path}`}
                   alt=""
                 />

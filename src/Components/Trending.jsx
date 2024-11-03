@@ -45,19 +45,19 @@ function Trending() {
 
   const navigate = useNavigate();
   return trending.length > 0 ? (
-    <div className='bg-[#1F1E24] h-screen w-screen relative overflow-x-hidden'>
-      <nav className='px-[2%]  py-3 text-zinc-400 font-semibold text-2xl flex items-center justify-between'>
+    <div className={`bg-[#1F1E24] h-screen w-screen relative overflow-x-hidden`}>
+      <nav className={`px-[2%]  py-3 text-zinc-400 font-semibold text-2xl flex items-center justify-between ${ window.innerWidth <= 640 ? 'mt-[13%]' : ''}`}>
         <div className="flex items-center space-x-3">
           <h1>
-            <i onClick={() => navigate(-1)} className="hover:text-[#1F1E24] mr-2 ri-arrow-left-line"></i>Trending
+            <i onClick={() => navigate(-1)} className={`hover:text-[#1F1E24] mr-2 ri-arrow-left-line `}></i>Trending
           </h1>
         </div>
 
-        <div className="flex-grow px-5">
-          <Topnav className="w-full h-[3rem] px-4 py-2 rounded-md text-lg" />
+        <div className={`flex-grow px-5 ${ window.innerWidth <= 640 ? 'absolute top-[0%] -left-10 z-20' : ''}`}>
+          <Topnav className={`w-full h-[3rem] px-4 py-2 rounded-md text-lg  `} />
         </div>
 
-        <div className="flex items-center w-[20%] space-x-2 ">
+        <div className={`flex items-center  space-x-2 ${ window.innerWidth <= 640 ? 'w-[70%]' : 'w-[20%]'}`}>
           <Dropdown
             title="Filter"
             options={["ALL","TV", "Movie"]}
@@ -79,7 +79,7 @@ function Trending() {
         hasMore={hasMore}
         loader={<h1>Loading..</h1>}
       >
-        <Cards data={trending} title={categories} />
+        <div className={`${ window.innerWidth <= 640 ? 'mx-11' : ''}`}><Cards data={trending} title={categories}/></div>
       </InfiniteScroll>
     </div>
   ) : <Loader />
