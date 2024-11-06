@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { useAuth0 } from "@auth0/auth0-react";
 function Sidenav() {
   const [isOpen, setIsOpen] = useState(false);
+  const { loginWithRedirect ,logout} = useAuth0();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -65,6 +66,8 @@ function Sidenav() {
             <Link to="/contact" className='hover:bg-[#6556CD] w-full hover:text-white mt-2 px-4 py-3 rounded-md text-base sm:text-[1.1vw] duration-300 text-zinc-400'>
               <i className="ri-phone-fill mr-2"></i>Contact Us
             </Link>
+            
+            <div><button className='hover:bg-[#6556CD] w-full hover:text-white mt-1 pr-[11.2vw]  pl-4 py-3  rounded-md text-base sm:text-[1.1vw] duration-300 text-zinc-400' onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}><i className="ri-logout-circle-line mr-2"></i>Log Out</button></div>
           </nav>
         </div>
       ) : null}

@@ -37,7 +37,7 @@ function Contact() {
     <div className={`h-screen w-screen bg-[#1F1E24]  py-[6%] text-white flex overflow-y-auto overflow-x-hidden  ${window.innerWidth<=640 ? "pr-7 leading-5":"px-[20%] "}`}>
       <i onClick={() => navigate(-1)} className="hover:text-[#1F1E24] text-white text-3xl mr-2 ri-arrow-left-line"></i>
       <div className='w-full'>
-        <h1 className={` font-bold  ${window.innerWidth<=640 ? "text-3xl ":"text-4xl ml-3 "}`}><i class="ri-phone-fill text-[#6556CD] "></i>  Contact US </h1>
+        <h1 className={` font-bold  ${window.innerWidth<=640 ? "text-3xl ":"text-4xl ml-3 "}`}><i className="ri-phone-fill text-[#6556CD] "></i>  Contact US </h1>
         <div className='h-[1px] bg-zinc-500 my-4'></div>
 
 
@@ -66,13 +66,13 @@ function Contact() {
         <p className='mt-4  text-zinc-300'>By using FilmFrenzy®️, you agree to comply with these terms. Content provided on this app is for personal use only and may not be redistributed. We are not liable for any inaccuracies or interruptions in the service. Users must respect copyright laws and refrain from any unlawful activities. We reserve the right to modify or terminate the app and its services at any time without notice. By creating an account, you agree to receive communications from us.</p>
         <i className={`ri-team-fill  text-[#6556CD]  ${window.innerWidth<=640 ? "text-6xl ml-[35%]":"text-9xl ml-[40%]"}`}></i>
 
-        <div className={`flex gap-4 text-xl  ${window.innerWidth<=640 ? " mt-3 ml-10":"ml-[40%]  mt-10 "} `}>
-          <a href="https://www.youtube.com/channel/UCF0EyUsA6HOzV5rOrtUSvBQ"><i class="ri-youtube-fill"></i></a>
-          <a href="https://www.facebook.com/themoviedb/"><i class="ri-facebook-fill"></i></a>
-          <a href="https://www.instagram.com/tbbd/"><i class="ri-instagram-line"></i></a>
-          <a href="https://x.com/tbd"><i class="ri-twitter-x-fill"></i></a>
-          <a href="https://www.themoviedb.org/tv/253384-dancing-for-the-devil-the-7m-tiktok-cult"><i class="ri-tiktok-fill"></i></a>
-          <a href="https://es.linkedin.com/company/themoviedb.org"><i class="ri-linkedin-box-fill"></i></a>
+        <div className={`flex gap-4 text-xl  ${window.innerWidth<=640 ? " mt-3 ml-10":"ml-[37%]  mt-1 "} `}>
+          <a href="https://www.youtube.com/channel/UCF0EyUsA6HOzV5rOrtUSvBQ"><i className="ri-youtube-fill"></i></a>
+          <a href="https://www.facebook.com/themoviedb/"><i className="ri-facebook-fill"></i></a>
+          <a href="https://www.instagram.com/tbbd/"><i className="ri-instagram-line"></i></a>
+          <a href="https://x.com/tbd"><i className="ri-twitter-x-fill"></i></a>
+          <a href="https://www.themoviedb.org/tv/253384-dancing-for-the-devil-the-7m-tiktok-cult"><i className="ri-tiktok-fill"></i></a>
+          <a href="https://es.linkedin.com/company/themoviedb.org"><i className="ri-linkedin-box-fill"></i></a>
         </div>
       </div>
     </div>
